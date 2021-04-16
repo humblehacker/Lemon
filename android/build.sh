@@ -56,27 +56,10 @@ if [[ "$configuration:l" != "debug" && "$configuration:l" != "release" ]]; then
 fi
 
 ###############################################################################
-# Setup
-###############################################################################
-
-# Version 7 of the Android Gradle Plugin requires Java 11, so we have to let gradle know
-# where to find it.  GitHub actions macos 10.15 virtual environment defines the following
-# environment variable.  Otherwise, we use a local install. Make sure you have adoptopenjdk-11
-# installed in the following location.
-if [ -z "$JAVA_HOME_11_X64" ]; then
-  JAVA_HOME_11_X64=/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/
-fi
-
-###############################################################################
 # Main
 ###############################################################################
 
 # Build native Android library 
-
-# We'd like to run `:lemonlib:build` to assemble, lint, and test the Collection SDK, but 
-# Version 7 of Android Gradle Plugin has a bug in the `lint` task resulting in the error
-# "lateinit property variantName has not been intialized".  So we skip the `lint` task and 
-# run `assemble` and `test` separately.
 
 if [[ $configuration == debug ]]; then
   assemble=assembleDebug
@@ -85,7 +68,6 @@ else
 fi
 
 ./gradlew \
-  -Dorg.gradle.java.home=$JAVA_HOME_11_X64 \
   :clean \
   :lemonlib:$assemble \
   :lemonlib:test \
