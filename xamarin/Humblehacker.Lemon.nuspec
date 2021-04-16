@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Humblehacker.Lemon</id>
+    <version>0.0.1</version>
+    <repository type="git" url="https://github.com/humblehacker/lemon.git" commit="" />
+    <title>Lemon Example SDK</title>
+    <authors>David Whetstone</authors>
+    <owners>David Whetstone</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Example package wrapping native Android library</description>
+    <releaseNotes></releaseNotes>
+    <copyright></copyright>
+    <language></language>
+    <dependencies>
+        <!-- <group targetFramework="netstandard2.1" /> -->
+        <!-- <group targetFramework="xamarinios10"> -->
+        <!--   <dependency id="System.Reactive" version="5.0.0" /> -->
+        <!-- </group> -->
+      <group targetFramework="monoandroid10.0" >
+      </group>
+    </dependencies>
+      <!-- <frameworkAssemblies> -->
+      <!-- <frameworkAssembly assemblyName="System.Core" targetFramework="Xamarin.iOS1.0" /> -->
+      <!--   <frameworkAssembly assemblyName="System" targetFramework="Xamarin.iOS1.0" /> -->
+      <!--   <frameworkAssembly assemblyName="System.Xml" targetFramework="Xamarin.iOS1.0" /> -->
+      <!--   <frameworkAssembly assemblyName="Xamarin.iOS" targetFramework="Xamarin.iOS1.0" /> -->
+      <!-- </frameworkAssemblies> -->
+  </metadata>
+</package>

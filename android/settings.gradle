@@ -1,0 +1,3 @@
+include ':lemonlib'
+include ':app'
+rootProject.name = "Lemon"
