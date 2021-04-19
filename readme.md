@@ -1,3 +1,8 @@
+
+This is a work-in-progress proof-of-concept project. It doesn't work yet, so don't follow this for your own code.  But if you come across this and have suggestions for improvement, please let me know!
+
+Shell scripts may not be ideal for building this project, but it's the devil I know.  Once this project is functional, I may work to replace the scripting with [Cake](https://cakebuild.net).
+
 ## Build Instructions
 
 1. Install prerequisites
