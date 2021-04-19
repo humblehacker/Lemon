@@ -79,6 +79,12 @@ fi
 # Setup
 ###############################################################################
 
+function onExit {
+  if [[ $? != 0 ]]; then
+    ERROR Build failed. 
+  fi
+}
+trap onExit EXIT
 
 build_dir=$basedir/build/$version
 package_dir=$build_dir/package
