@@ -129,7 +129,10 @@ cp $externals/aar/* $package_dir/build/$monoandroid || exit 1
 
 echo TARGETS
 # Generate targets file and copy to package
-ls $externals/aar | $basedir/tools/generate-targets.csx --targetframework $monoandroid > $package_dir/build/$monoandroid/$nuget_name.targets || exit 1
+ls $package_dir/build/$monoandroid/*.aar \
+    | xargs basename \
+    | $basedir/tools/generate-targets.csx --targetframework $monoandroid \
+    > $package_dir/build/$monoandroid/$nuget_name.targets || exit 1
 cp $package_dir/build/$monoandroid/$nuget_name.targets $package_dir/buildTransitive/$monoandroid || exit 1
 
 echo DUMP
