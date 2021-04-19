@@ -106,20 +106,22 @@ if [[ $skip_android == false ]]; then
     --config $configuration \
     || exit 1
   popd
+
+  rm -rf Lemon.Android.Binding/Jars/*.aar
+  cp $externals/lemonlib-$configuration.aar Lemon.Android.Binding/Jars
+
+  # extract jars from aars
+  # ex: foobar.aar/classes.jar => foobar.aar.jar
+  extracted_jars=$externals/extracted_jars
+  if [[ ! -d $extracted_jars ]]; then
+    mkdir -p $extracted_jars
+  fi
+
+  for aar in $externals/aar/*; do
+    filename=$(basename $aar)
+    unzip -j $aar classes.jar -d $extracted_jars/$filename > /dev/null || exit 1
+    mv $extracted_jars/$filename/classes.jar $extracted_jars/$filename.jar || exit 1
+    rm -rf $extracted_jars/$filename || exit 1
+  done
+
 fi
-
-# extract jars from aars
-# ex: foobar.aar/classes.jar => foobar.aar.jar
-extracted_jars=$externals/extracted_jars
-if [[ ! -d $extracted_jars ]]; then
-  mkdir -p $extracted_jars
-fi
-
-for aar in $externals/aar/*; do
-  filename=$(basename $aar)
-  unzip -j $aar classes.jar -d $extracted_jars/$filename > /dev/null || exit 1
-  mv $extracted_jars/$filename/classes.jar $extracted_jars/$filename.jar || exit 1
-  rm -rf $extracted_jars/$filename || exit 1
-done
-
-
