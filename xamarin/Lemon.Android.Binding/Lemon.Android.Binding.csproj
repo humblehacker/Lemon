@@ -56,6 +56,10 @@
   <ItemGroup>
     <LibraryProjectZip Include="Jars\lemonlib-*.aar" />
   </ItemGroup>
+  <ItemGroup>
+    <ReferenceJar Include="externals/extracted_jars/*" />
+    <ReferenceJar Include="externals/jars/*" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
