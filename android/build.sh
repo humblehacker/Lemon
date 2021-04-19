@@ -78,6 +78,10 @@ else
   assemble=assemble
 fi
 
+if [[ -d lemonlib/xamarin ]]; then
+  rm -rf lemonlib/xamarin 
+fi
+
 ./gradlew \
   :clean \
   :lemonlib:$assemble \
